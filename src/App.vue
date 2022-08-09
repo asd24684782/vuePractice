@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app" data-width="20rem">
+    <input v-model="loginForm.username" type="text" placeholder="Username" data-space-bottom="0.5rem" />
+    <input v-model="loginForm.password" type="password" placeholder="Password" data-space-bottom="0.5rem" />
+    <br>
+    <button type="primary" @click="handleLogin">login</button>
+    <br>
+    <button @click="removeCookie">Clear</button>
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      loginForm : {
+          username: '',
+          password: '',
+          token: ''
+      }
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
