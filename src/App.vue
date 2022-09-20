@@ -1,39 +1,23 @@
 <template>
   <h1> Faker what was that !!! </h1>
-  <button @click="start" :disabled="isPlaying">play</button>
-  <Block v-if="isPlaying" :delay="delay" @end="endGame" />
-  <Result v-if="showResults" :score="score" />
+  <SignupForm></SignupForm>
 </template>
 
 <script>
-import Block from './components/Block.vue'
-import Result from './components/Result.vue'
+import SignupForm from './components/SignupForm.vue';
 
 export default {
   name: 'App',
-  components:{ Block, Result },
+  components:{ SignupForm },
 
   data(){
     return {
-      isPlaying: false,
-      delay: null,
-      score: null,
-      showResults: false,
+
     }
   },
 
   methods: {
-    start() {
-      this.delay = 2000 + Math.random() * 5000
-      this.isPlaying = true
-      this.showResults = false
-    },
 
-    endGame(reactionTime) {
-      this.score = reactionTime
-      this.isPlaying = false
-      this.showResults = true
-    }
 
   },
 
@@ -50,6 +34,9 @@ export default {
   margin-top: 60px;
 }
 
-
+body {
+  margin: 0;
+  background: #eee;
+}
 
 </style>
